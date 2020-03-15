@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nimbus-sonarr-config-share
+spec:
+  capacity:
+    storage: 0.1Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: sonarr-config-storageclass
+  nfs:
+    path: /volume1/nfs/media/sonarr/config
+    server: 192.168.1.15

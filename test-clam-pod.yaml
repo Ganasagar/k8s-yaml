@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: claim-tester
+spec:
+  containers:
+    - name: claim-tester
+      image: nginx
+      volumeMounts:
+      - mountPath: "/gabbar"
+        name: nzb-volume
+  volumes:
+    - name: nzb-volume
+      persistentVolumeClaim:
+        claimName: nzb-pvc
